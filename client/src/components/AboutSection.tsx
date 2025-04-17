@@ -1,5 +1,5 @@
 import '../styles/AboutSection.css';
-
+import React from "react";
 const AboutSection = () => {
   return (
     <section className="about">
