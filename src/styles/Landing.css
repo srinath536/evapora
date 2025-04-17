@@ -1,0 +1,93 @@
+  .landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    background-color:  #000000;
+  }
+  
+  .landing-content {
+    max-width: 800px;
+  }
+  
+  .headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .subtext {
+    font-size: 24px;
+    color: #A0A0A0; /* Soft gray */
+    margin-bottom: 15px;
+  }
+  
+  .description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #A0A0A0;
+  }
+  
+  .cta-btn {
+    background-color: #D4D4D4; /* Accent color */
+    color: #000000; /* Primary BG */
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    background-color: #1A1A1A; /* CTA Hover color */
+    color: #FFFFFF;
+  }
+  
+  /* Responsive Design for Mobile */
+  @media (max-width: 768px) {
+    .landing {
+      padding: 20px;
+    }
+  
+    .headline {
+      font-size: 36px;
+    }
+  
+    .subtext {
+      font-size: 20px;
+    }
+  
+    .description {
+      font-size: 16px;
+    }
+  
+    .cta-btn {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .landing {
+      padding: 10px;
+    }
+  
+    .headline {
+      font-size: 28px;
+    }
+  
+    .subtext {
+      font-size: 18px;
+    }
+  
+    .description {
+      font-size: 14px;
+    }
+  
+    .cta-btn {
+      font-size: 14px;
+    }
+  }
+  

@@ -1,0 +1,26 @@
+.about {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: black;
+  }
+  
+  .about h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+  }
+  
+  .about p {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .about h2 {
+      font-size: 28px;
+    }
+  
+    .about p {
+      font-size: 16px;
+    }
+  }
+  

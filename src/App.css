@@ -1,0 +1,29 @@
+/* src/styles/App.css */
+
+body {
+  font-family: 'Geist Mono', monospace;
+  background-color: #000000; /* Primary BG: Jet black */
+  color: #FFFFFF; /* Text (main): Pure white */
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #FFFFFF; /* Text (main): Pure white */
+}
+
+/* Global styles for secondary text */
+.secondary-text {
+  color: #A0A0A0; /* Secondary Text: Soft gray */
+}
+
+/* Error/Alert message styles */
+.error-message {
+  color: #FF4C4C; /* Error / Alert: Red tone */
+}
+
+/* Accent and border styles */
+.accent {
+  border: 1px solid #D4D4D4; /* Accent / Border: Thin borders */
+}

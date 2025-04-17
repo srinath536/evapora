@@ -1,0 +1,208 @@
+/* Basic header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000000; /* Primary BG */
+    position: relative;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #D4D4D4; /* Add this line */
+  }
+  
+  /* Logo and title styling */
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #FFFFFF; /* Text (main) */
+    font-size: 32px;
+    margin: 0;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    cursor: none;
+  }
+  
+  .hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: #FFFFFF; /* White color for lines */
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hamburger .line.open:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+  }
+  
+  .hamburger .line.open:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger .line.open:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+  }
+  
+  /* Navigation Links Styling */
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    color: #FFFFFF; /* Text (main) */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #D4D4D4; /* Accent / Border color */
+  }
+  
+  /* Desktop CTA Button */
+  .cta-desktop {
+    display: block;
+  }
+  
+  .cta-button {
+    background-color: #D4D4D4; /* Accent color */
+    color: #000000; /* Primary BG */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #1A1A1A; /* CTA Hover color */
+    color: #FFFFFF;
+  }
+  
+  /* Hide mobile CTA on desktop */
+  .cta-mobile {
+    display: none;
+  }
+  
+  /* Responsive Design for Mobile */
+  @media (max-width: 768px) {
+    .header {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    /* Hide the navigation links by default */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #000000;
+      text-align: center;
+      padding: 20px 0;
+      z-index: 10;
+    }
+  
+    .nav-links.open {
+        display: block;
+        animation: slideDown 0.3s ease forwards;
+      }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-links ul {
+      flex-direction: column;
+    }
+  
+    .nav-links li {
+      margin: 15px 0;
+    }
+  
+    /* Hide desktop CTA in mobile */
+    .cta-desktop {
+      display: none;
+    }
+  
+    /* Show CTA button inside nav for mobile */
+    .cta-mobile {
+      display: block;
+      margin-top: 10px;
+    }
+  
+    .cta-button {
+      display: inline-block;
+      background-color: #1A1A1A;
+      
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .cta-button:hover {
+      background-color: #1A1A1A;
+      
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    .nav-links a {
+      font-size: 16px;
+    }
+  
+    .cta-button {
+      font-size: 16px;
+    }
+  }
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  
+  
