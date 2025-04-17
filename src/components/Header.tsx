@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/Header.css';
 
 const Header = () => {

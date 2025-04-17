@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/AboutSection.css';
 
 const AboutSection = () => {
