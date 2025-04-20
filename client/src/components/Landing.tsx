@@ -1,40 +1,46 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "../styles/Landing.css";
 
 const Landing = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [fileInfo, setFileInfo] = useState<{ name: string; type: string } | null>(null);
+  const [popup, setPopup] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const handleButtonClick = () => {
-    fileInputRef.current?.click();  // Triggers the file input click
+    fileInputRef.current?.click();
+  };
+
+  const showPopup = (message: string, type: "success" | "error") => {
+    setPopup({ message, type });
+    setTimeout(() => setPopup(null), 3000); // auto-hide after 3 sec
   };
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (!file) {
-      console.error("No file selected");
-      return;
-    }
+    if (!file) return showPopup("No file selected", "error");
+
+    setFileInfo({ name: file.name, type: file.type });
 
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/api/upload", {
+      const res = await fetch("http://localhost:5000/api/upload", {
         method: "POST",
         body: formData,
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Upload success:", data); // Log the response for debugging
-        alert("File uploaded successfully!");
+      const data = await res.json();
+      if (res.ok) {
+        showPopup("Upload successful!", "success");
+        console.log(data);
       } else {
-        console.error("Upload failed with status:", response.status);
-        alert(`Upload failed. Status: ${response.status}`);
+        showPopup("Upload failed", "error");
+        console.error(data);
       }
     } catch (error) {
-      console.error("Error uploading file:", error);
-      alert("An error occurred while uploading. Please try again.");
+      showPopup("An error occurred", "error");
+      console.error(error);
     }
   };
 
@@ -42,20 +48,20 @@ const Landing = () => {
     <div className="landing">
       <div className="landing-content">
         <h1 className="headline">Evapora: Secure Your Files</h1>
-        <p className="subtext">Geo-intelligent, self-destructing file storage solution.</p>
-        <p className="description">
-          Upload your files securely and set parameters like location, time limit, and authorization level.
+        <p className="subtext">
+          Upload your files securely, and protect your privacy with our geo-intelligent system.
         </p>
         <button className="cta-btn" onClick={handleButtonClick}>
           Upload a File
         </button>
-        <input
-          type="file"
-          ref={fileInputRef}
-          style={{ display: "none" }}
-          onChange={handleFileChange}  // Handling the file input change event
-        />
+        <input type="file" ref={fileInputRef} style={{ display: "none" }} onChange={handleFileChange} />
       </div>
+
+      {popup && (
+        <div className={`popup-box ${popup.type}`}>
+          <p>{popup.message}</p>
+        </div>
+      )}
     </div>
   );
 };

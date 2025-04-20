@@ -45,6 +45,52 @@
     background-color: #1A1A1A; /* CTA Hover color */
     color: #FFFFFF;
   }
+  .popup-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #ffffff;
+    z-index: 999;
+    animation: fadeInOut 3s ease forwards;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .popup-box.success {
+    background-color: #00c851; /* green */
+    border: 1px solid #00c851;
+  }
+  
+  .popup-box.error {
+    background-color: #ff4c4c; /* red */
+    border: 1px solid #ff4c4c;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      bottom: 10px;
+    }
+    10% {
+      opacity: 1;
+      bottom: 20px;
+    }
+    90% {
+      opacity: 1;
+      bottom: 20px;
+    }
+    100% {
+      opacity: 0;
+      bottom: 10px;
+    }
+  }
+  
+  /* Rest of your existing CSS remains unchanged... */
+  
   
   /* Responsive Design for Mobile */
   @media (max-width: 768px) {
